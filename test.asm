@@ -5,9 +5,9 @@
 // define EIP?
 
 // prologue for main()
-push ebp;
-mov ebp, esp;
-sub esp, [number];
+push ebp
+mov ebp,esp
+sub esp,20
 
 // main() function
 mov dword ptr ss:[esp+number],0B;
@@ -15,17 +15,19 @@ mov dword ptr ss:[esp+number],0C;
 mov dword ptr ss:[esp+number],0D;
 
 // parameters for calling functest(30, 31, 32)
+mov dword ptrs ss:[esp+4],1f
+mov dword ptr ss:[esp],1e
 
 //define EIP?
 
 //prologue for functest()
-push ebp;
-mov ebp, esp;
-sub esp, [number];
+push ebp
+mov ebp, esp
+sub esp, [number]
 
 // void functest(int a, int b, int c)
-mov dword ptr ss:[esp+number],37;
-mov dword ptr ss:[esp+number],38;
+mov dword ptr ss:[esp+number],37
+mov dword ptr ss:[esp+number],38
 
 //epilogue for functest()
 mov esp, ebp
