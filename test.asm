@@ -26,8 +26,8 @@ mov ebp,esp
 sub esp,0x10
 
 // void functest(int a, int b, int c)
-mov dword ptr ss:[esp+number],0x37
-mov dword ptr ss:[esp+number],0x38
+mov dword ptr ss:[esp+0x04],0x37
+mov dword ptr ss:[esp],0x38
 
 //epilogue for functest()
 mov esp,ebp
