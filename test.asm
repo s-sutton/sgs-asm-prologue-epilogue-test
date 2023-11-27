@@ -10,7 +10,7 @@ mov ebp,esp
 sub esp,20
 
 // main() function
-mov dword ptr ss:[esp+1c],0B
+mov dword ptr ss:[esp+1C],0B
 mov dword ptr ss:[esp+18],0C
 mov dword ptr ss:[esp+14],0D
 
