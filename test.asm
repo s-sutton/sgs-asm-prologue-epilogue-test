@@ -15,8 +15,8 @@ mov dword ptr ss:[esp+18],0C
 mov dword ptr ss:[esp+14],0D
 
 // parameters for calling functest(30, 31, 32)
-mov dword ptrs ss:[esp+4],1f
-mov dword ptr ss:[esp],1e
+mov dword ptrs ss:[esp+4],1F
+mov dword ptr ss:[esp],1E
 
 //define EIP?
 
