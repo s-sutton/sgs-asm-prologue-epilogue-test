@@ -10,9 +10,9 @@ mov ebp,esp
 sub esp,20
 
 // main() function
-mov dword ptr ss:[esp+number],0B
-mov dword ptr ss:[esp+number],0C
-mov dword ptr ss:[esp+number],0D
+mov dword ptr ss:[esp+1c],0B
+mov dword ptr ss:[esp+18],0C
+mov dword ptr ss:[esp+14],0D
 
 // parameters for calling functest(30, 31, 32)
 mov dword ptrs ss:[esp+4],1f
