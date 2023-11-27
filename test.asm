@@ -22,19 +22,19 @@ mov dword ptr ss:[esp],1e
 
 //prologue for functest()
 push ebp
-mov ebp, esp
-sub esp, [number]
+mov ebp,esp
+sub esp,10
 
 // void functest(int a, int b, int c)
 mov dword ptr ss:[esp+number],37
 mov dword ptr ss:[esp+number],38
 
 //epilogue for functest()
-mov esp, ebp
+mov esp,ebp
 pop ebp
 ret
 
 //epilogue for main()
-mov esp, ebp
+mov esp,ebp
 pop ebp
 ret
