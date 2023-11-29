@@ -9,7 +9,6 @@ This project aims at manually converting the following C program snippet into x8
     
       int test2 = 56;
   
-  
     }
   
   
@@ -25,7 +24,6 @@ This project aims at manually converting the following C program snippet into x8
     
       return 0;
     
-
     }
 
 I worked out the corresponding hex by hand, except for 11 being 0B, as practice for counting and converting hex in my head. It's like re-learning math in a new base. I'm not sure how useful that is, but it's fun.
