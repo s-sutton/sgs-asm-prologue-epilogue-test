@@ -1,40 +1,40 @@
-// WIP to make a functional script out of the example code given in the Penetration Testing Professional course from INE
+/.// WIP to make a functional script out of the example code given in the Penetration Testing Professional course from INE
 
-// paramaters for main(int argc, char argv*[])
+/.// paramaters for main(int argc, char argv*[])
 
-// define EIP?
+/.// define EIP?
 
-// prologue for main()
-push ebp
-mov ebp,esp
-sub esp,0x20
+/.// prologue for main()
+PUSH EBP
+MOV EBP,ESP
+SUB ESP,0x20
 
-// main() function
-mov dword ptr ss:[esp+0x1C],0x0B
-mov dword ptr ss:[esp+0x18],0x0C
-mov dword ptr ss:[esp+0x14],0x0D
+/.// main() function
+MOV DWORD PTR SS:[ESP+0x1C],0x0B
+MOV DWORD PTR SS:[ESP+0x18],0x0C
+MOV DWORD PTR SS:[ESP+0x14],0x0D
 
-// parameters for calling functest(30, 31, 32)
-mov dword ptrs ss:[esp+0x04],0x1F
-mov dword ptr ss:[esp],0x1E
+/.// parameters for calling functest(30, 31, 32)
+MOV DWORD PTR SS:[ESP+0x04],0x1F
+MOV DWORD PTR SS:[ESP],0x1E
 
-//define EIP?
+/.//define EIP?
 
-//prologue for functest()
-push ebp
-mov ebp,esp
-sub esp,0x10
+/.//prologue for functest()
+PUSH EBP
+MOV EBP,ESP
+SUB ESP,0x10
 
-// void functest(int a, int b, int c)
-mov dword ptr ss:[esp+0x04],0x37
-mov dword ptr ss:[esp],0x38
+/.// void functest(int a, int b, int c)
+MOV DWORD PTR SS:[ESP+0x04],0x37
+MOV DWORD PTR SS:[ESP],0x38
 
-//epilogue for functest()
-mov esp,ebp
-pop ebp
-ret
+/.//epilogue for functest()
+MOV ESP,EBP
+POP EBP
+RET ; probably not going to do anything since there is no call
 
-//epilogue for main()
-mov esp,ebp
-pop ebp
-ret
+/.//epilogue for main()
+MOV ESP,ENP
+POP EBP
+RET ; also not going to do anything without a call, probably?
