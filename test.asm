@@ -35,6 +35,6 @@ POP EBP
 RET ; probably not going to do anything since there is no call
 
 ; /.//epilogue for main()
-MOV ESP,ENP
+MOV ESP,EBP
 POP EBP
 RET ; also not going to do anything without a call, probably?
