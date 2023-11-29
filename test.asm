@@ -23,7 +23,7 @@ MOV DWORD PTR SS:[ESP+0x04],0x1F
 MOV DWORD PTR SS:[ESP],0x1E
 
 ; /.//define EIP?
-; I think EIP is manually set to the next instruction, so this is really not needed.
+; I think EIP is automatically set to the next instruction, so this is really not needed.
 
 ; /.//prologue for functest()
 PUSH EBP
