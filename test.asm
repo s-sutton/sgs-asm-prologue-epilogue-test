@@ -1,8 +1,12 @@
 ; /.// WIP to make a functional script out of the example code given in the Penetration Testing Professional course from INE
 
 ; /.// paramaters for main(int argc, char argv*[])
+MOV DWORD PTR SS:[ESP+0x04],0x0
+MOV DWORD PTR SS:[ESP],0x0
+; initialized parameters to 0 because they have no value, which I think is normally the default in C?
 
 ; /.// define EIP?
+; probably unnecessary
 
 ; /.// prologue for main()
 PUSH EBP
@@ -19,6 +23,7 @@ MOV DWORD PTR SS:[ESP+0x04],0x1F
 MOV DWORD PTR SS:[ESP],0x1E
 
 ; /.//define EIP?
+; I think EIP is manually set to the next instruction, so this is really not needed.
 
 ; /.//prologue for functest()
 PUSH EBP
@@ -32,9 +37,9 @@ MOV DWORD PTR SS:[ESP],0x38
 ; /.//epilogue for functest()
 MOV ESP,EBP
 POP EBP
-RET ; probably not going to do anything since there is no call
+; RET - probably not going to do anything since there is no call, so commented out for now
 
 ; /.//epilogue for main()
 MOV ESP,EBP
 POP EBP
-RET ; also not going to do anything without a call, probably?
+; RET - also not going to do anything without a call, probably?
