@@ -1,5 +1,11 @@
+
+.global _main
+
+.text
+
 ; /.// WIP to make a functional script out of the example code given in the Penetration Testing Professional course from INE
 
+_main:
 ; /.// paramaters for main(int argc, char argv*[])
 MOV DWORD PTR SS:[ESP+0x04],0x0
 MOV DWORD PTR SS:[ESP],0x0
@@ -18,6 +24,7 @@ MOV DWORD PTR SS:[ESP+0x1C],0x0B
 MOV DWORD PTR SS:[ESP+0x18],0x0C
 MOV DWORD PTR SS:[ESP+0x14],0x0D
 
+_functest:
 ; /.// parameters for calling functest(30, 31, 32)
 MOV DWORD PTR SS:[ESP+0x04],0x1F
 MOV DWORD PTR SS:[ESP],0x1E
@@ -39,7 +46,13 @@ MOV ESP,EBP
 POP EBP
 ; RET - probably not going to do anything since there is no call, so commented out for now
 
+_epilogue:
 ; /.//epilogue for main()
 MOV ESP,EBP
 POP EBP
 ; RET - also not going to do anything without a call, probably?
+
+;/.//exit the program
+MOV RAX,0x60
+MOV RDI,0x0
+syscall
