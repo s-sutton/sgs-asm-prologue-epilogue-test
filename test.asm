@@ -27,7 +27,7 @@ MOV DWORD PTR SS:[ESP+0x08],0x0B
 ; the second takes up space from ESP+0x04 to 0x08, being 0x04, 0x05, 0x06, and 0x07-  0x0C is hex for 12, which is the value of z
 MOV DWORD PTR SS:[ESP+0x04],0x0C
 ; the third takes up space from ESP+0x00 to 0x04, being 0x00, 0x01, 0x02, and 0x03 - 0x0D is hex for 13, which is the value of y
-MOV DWORD PTR SS:[ESP+0x00],0x0D
+MOV DWORD PTR SS:[ESP],0x0D
 
 ; the rest is mostly the same process as above
 
@@ -40,7 +40,7 @@ PUSH 0x1E
 ; /.//prologue for functest()
 PUSH EBP
 MOV EBP,ESP
-SUB ESP,0x10
+SUB ESP,0x07
 
 ; /.// void functest(int a, int b, int c) { int test1 = 55; int test2 = 56; }
 MOV DWORD PTR SS:[ESP+0x04],0x38
