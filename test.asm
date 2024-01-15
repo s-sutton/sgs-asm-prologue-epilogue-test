@@ -68,7 +68,7 @@ POP EBP
 ; RET - also not going to do anything without a call, probably?
 
 ;/.//exit the program
-; I think 0x60 is the magic number for ending a program with a syscall?
+; the syscall reads from the accumulator to determine what system instruction to execute, here 0x60 corresponds to sys_exit
 MOV RAX,0x60
 ; set return value to 0, meaning "ok"
 MOV RDI,0x0
