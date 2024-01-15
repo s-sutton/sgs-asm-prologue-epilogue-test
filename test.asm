@@ -50,6 +50,7 @@ MOV DWORD PTR SS:[ESP],0x39
 ; reset the stack pointer to point to the base, which was defined at the beginning of the function, so we are now pointing back to the beginning of functest()
 MOV ESP,EBP
 ; by popping the base pointer, we are restoring its value to the previous base, which is at the beginning of main()
+; this is because we stored the value of the previous base at the beginning of the new base during the prologue, so we are now popping that stored value back into the base pointer register
 POP EBP
 
 _epilogue:
