@@ -11,6 +11,9 @@ PUSH 0x0
 PUSH 0x0
 ; initialized parameters to 0 because they have no value, which I think is normally the default in C?
 
+:/.//define EIP
+; PUSH EIP
+
 ; /.// prologue for main()
 ;save current base pointer for later use
 PUSH EBP
@@ -37,6 +40,9 @@ PUSH 0x20
 PUSH 0x1F
 PUSH 0x1E
 
+; /.// define EIP
+; PUSH EIP
+
 ; /.//prologue for functest()
 PUSH EBP
 MOV EBP,ESP
@@ -52,6 +58,9 @@ MOV ESP,EBP
 ; by popping the base pointer, we are restoring its value to the previous base, which is at the beginning of main()
 ; this is because we stored the value of the previous base at the beginning of the new base during the prologue, so we are now popping that stored value back into the base pointer register
 POP EBP
+; return essentially pops the value from the stack into the EIP and then jumps to it, which in this case would be the old EIP if defined earlier
+; commented out because this might actually break the program here since I am not using syscalls to shift the instruction pointer between functions, but it's important to keep for illustrative purposes
+; RET
 
 _epilogue:
 ; /.//epilogue for main()
@@ -59,6 +68,7 @@ _epilogue:
 MOV ESP,EBP
 ; this time, when we pop the base pointer, it will now go back to the value it had before it was set to the beginning of main(), which should be(?) the beginning of the entire program
 POP EBP
+; RET
 
 ;/.//exit the program
 ; the syscall reads from the accumulator to determine what system instruction to execute, here 0x60 corresponds to sys_exit
