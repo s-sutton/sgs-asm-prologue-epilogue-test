@@ -50,14 +50,8 @@ PUSH 0x20
 PUSH 0x1F
 PUSH 0x1E
 
-; /.// define EIP
-; I have no idea how to actually do this. I know that if I merely push the EIP, then when it is called again I will essentially create an infinite loop
-; So I have to push the EIP pointing to the next instruction rather than the current one, and I think every instruction is loaded into memory with the program, with 4 bytes for each instruction so
-MOV RAX,EIP
-ADD RAX,0x0F
-PUSH RAX
-JMP functest
-; This should push an EIP value that is just after JMP functest, right?
+; /.// define EIP and go to functest()
+CALL functest
 
 ; /.//epilogue for main()
 ; reset the stack pointer to point to the base, which was defined at the beginning of the function, so now we are pointing to the beginning of main()
@@ -72,11 +66,8 @@ PUSH 0x0
 PUSH 0x0
 ; initialized parameters to 0 because they have no value, which I think is normally the default in C?
 
-;/.//define EIP
-MOV RAX,EIP
-ADD RAX,0x0F
-PUSH RAX
-JMP mainfunc
+;/.//define EIP and go to main()
+CALL mainfunc
 
 ;/.//exit the program
 ; the syscall reads from the accumulator to determine what system instruction to execute, here 0x60 corresponds to sys_exit
