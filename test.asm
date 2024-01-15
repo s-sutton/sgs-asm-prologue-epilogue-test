@@ -3,16 +3,13 @@
 
 .text
 
-; /.// WIP to make a functional script out of the example code given in the Penetration Testing Professional course from INE
+; /.// WIP to make a functional script out of the unfinished, partial example code given in the Penetration Testing Professional course from INE
 
 _main:
 ; /.// paramaters for main(int argc, char argv*[])
 PUSH 0x0
 PUSH 0x0
 ; initialized parameters to 0 because they have no value, which I think is normally the default in C?
-
-; /.// define EIP?
-; probably unnecessary
 
 ; /.// prologue for main()
 ;save current base pointer for later use
@@ -40,9 +37,6 @@ PUSH 0x20
 PUSH 0x1F
 PUSH 0x1E
 
-; /.//define EIP?
-; I think EIP is automatically set to the next instruction, so this is really not needed.
-
 ; /.//prologue for functest()
 PUSH EBP
 MOV EBP,ESP
@@ -57,7 +51,6 @@ MOV DWORD PTR SS:[ESP],0x39
 MOV ESP,EBP
 ; by popping the base pointer, we are restoring its value to the previous base, which is at the beginning of main()
 POP EBP
-; RET - probably not going to do anything since there is no call, so commented out for now
 
 _epilogue:
 ; /.//epilogue for main()
@@ -65,7 +58,6 @@ _epilogue:
 MOV ESP,EBP
 ; this time, when we pop the base pointer, it will now go back to the value it had before it was set to the beginning of main(), which should be(?) the beginning of the entire program
 POP EBP
-; RET - also not going to do anything without a call, probably?
 
 ;/.//exit the program
 ; the syscall reads from the accumulator to determine what system instruction to execute, here 0x60 corresponds to sys_exit
