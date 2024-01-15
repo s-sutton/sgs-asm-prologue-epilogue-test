@@ -54,7 +54,7 @@ PUSH 0x1E
 ; I have no idea how to actually do this. I know that if I merely push the EIP, then when it is called again I will essentially create an infinite loop
 ; So I have to push the EIP pointing to the next instruction rather than the current one, and I think every instruction is loaded into memory with the program, with 4 bytes for each instruction so
 MOV RAX,EIP
-ADD RAX,16
+ADD RAX,0x0F
 PUSH RAX
 JMP functest
 ; This should push an EIP value that is just after JMP functest, right?
@@ -72,9 +72,9 @@ PUSH 0x0
 PUSH 0x0
 ; initialized parameters to 0 because they have no value, which I think is normally the default in C?
 
-:/.//define EIP
+;/.//define EIP
 MOV RAX,EIP
-ADD RAX,16
+ADD RAX,0x0F
 PUSH RAX
 JMP mainfunc
 
