@@ -12,7 +12,7 @@ MOV EBP,ESP
 SUB ESP,0x07
 
 ; /.// void functest(int a, int b, int c) { int test1 = 55; int test2 = 56; }
-; PTR here refers to the pointer, which points to a particular memory address, and SS specifies the stack segment
+; PTR here refers to the pointer, which points to a particular memory address, and SS specifies the stack segment register, which is the portion of memory that contains the stack
 MOV DWORD PTR SS:[ESP+0x04],0x38
 MOV DWORD PTR SS:[ESP],0x39
 
