@@ -12,7 +12,11 @@ MOV EBP,ESP
 SUB ESP,0x07
 
 ; /.// void functest(int a, int b, int c) { int test1 = 55; int test2 = 56; }
-; PTR here refers to the pointer, which points to a particular memory address, and SS specifies the stack segment register, which is the portion of memory that contains the stack
+; DWORD stands for "doubleword" which is a 4 byte value, it sets the size of the space in memory that is being written to, kinda similar to an int declaration
+; PTR stands for "pointer" and is telling the CPU to write the DWORD value at the immediate space that is being pointed to
+; SS specifies the stack segment register, which is the portion of memory that contains the stack, which is part A of the logical address A:B for segmentation, denoting the base of the segment
+; Here, the value from the stack pointer is used for part B for the logical address of the memory segment, since the stack pointer contains the value of the location of the top of the stack
+; Because the stack is subtractive, going "back" in the stack means adding
 MOV DWORD PTR SS:[ESP+0x04],0x38
 MOV DWORD PTR SS:[ESP],0x39
 
