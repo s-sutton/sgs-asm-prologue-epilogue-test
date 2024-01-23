@@ -74,7 +74,7 @@ CALL mainfunc
 
 /* ;/.//exit the program
 ; the syscall reads from the accumulator to determine what system instruction to execute, here 0x60 corresponds to sys_exit */
-MOV RAX,0x60
+MOV EAX,0x60
 /* ; set return value to 0, meaning "ok" */
-MOV RDI,0x0
+MOV EDI,0x0
 syscall
