@@ -4,7 +4,7 @@
 /*  WIP to make a functional script out of the unfinished, partial example code given in the Penetration Testing Professional course from INE */
 
 _functest:
-/* ; /.//prologue for functest() *.
+/* ; /.//prologue for functest() */
 PUSH EBP
 MOV EBP,ESP
 SUB ESP,0x07
