@@ -1,7 +1,5 @@
-
-.global _main
-
-.text
+.global _start
+.intel_syntax noprefix
 
 ; /.// WIP to make a functional script out of the unfinished, partial example code given in the Penetration Testing Professional course from INE
 
@@ -65,7 +63,7 @@ MOV ESP,EBP
 POP EBP
 RET
 
-_main:
+_start:
 ; /.// paramaters for main(int argc, char argv*[])
 PUSH 0x0
 PUSH 0x0
