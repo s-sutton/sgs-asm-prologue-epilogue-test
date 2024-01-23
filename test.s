@@ -48,7 +48,7 @@ MOV DWORD PTR SS:[ESP],0x0D
 
 /* ; the rest is mostly the same process as above
 
-; /.// parameters for calling functest(30, 31, 32) /*
+; /.// parameters for calling functest(30, 31, 32) */
 PUSH 0x20
 PUSH 0x1F
 PUSH 0x1E
